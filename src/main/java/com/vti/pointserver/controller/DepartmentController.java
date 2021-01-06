@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping(value = "/api/v1/departments")
+@RequestMapping(value = "/api/v1/manager")
 public class DepartmentController {
 
 	@GetMapping()

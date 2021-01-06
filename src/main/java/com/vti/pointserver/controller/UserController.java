@@ -20,28 +20,32 @@ import com.vti.pointserver.service.UserService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping(value = "/api/v1/users")
+@RequestMapping(value = "/api/v1")
 public class UserController {
 
 	@Autowired
 	private UserService service;
 
-	@GetMapping()
+	@GetMapping(value = "/admin/list")
 	public ResponseEntity<?> getAllUsers() {
 		return new ResponseEntity<>(service.getAllUsers(), HttpStatus.OK);
 	}
-	@PostMapping()
+	@GetMapping(value = "/{role}")
+	public ResponseEntity<?> getByUser(@PathVariable(name= "role") String role) {
+		return new ResponseEntity<User>(service.getByrole(role), HttpStatus.OK);
+	}
+	@PostMapping(value = "/admin")
 	public ResponseEntity<?> createUser(@RequestBody User user) {
 		service.createUser(user);
 		return new ResponseEntity<String>("Create Success!", HttpStatus.OK);
 	}
-	@PutMapping(value = "/{id}")
+	@PutMapping(value = "/admin/{id}")
 	public ResponseEntity<?> updateUser(@PathVariable(name= "id") int id,@RequestBody User user) {
 		user.setId(id);
 		service.updateUser(user);
 		return new ResponseEntity<String>("Update Success!", HttpStatus.OK);
 	}
-	@DeleteMapping(value = "/{id}")
+	@DeleteMapping(value = "/admin/{id}")
 	public ResponseEntity<?> deleteUser(@PathVariable(name = "id") int id) {
 		service.deleteUser(id);
 		return new ResponseEntity<String>("Delete Success!", HttpStatus.OK);

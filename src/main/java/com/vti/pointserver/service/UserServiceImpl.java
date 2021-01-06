@@ -1,6 +1,7 @@
 package com.vti.pointserver.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -63,5 +64,10 @@ public class UserServiceImpl implements UserService {
 	public void deleteUser(int id) {
 		repository.deleteById(id);
 		
+	}
+
+	@Override
+	public User getByrole(String role){
+		return repository.findByrole(role);	
 	}
 }
