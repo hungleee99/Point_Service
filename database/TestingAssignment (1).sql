@@ -6,7 +6,7 @@ USE TestingSystem;
 -- create table: User
 DROP TABLE IF EXISTS 	`User`;
 CREATE TABLE IF NOT EXISTS `User` ( 	
-	id 				SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id 				TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	`username`	 	CHAR(50) NOT NULL UNIQUE CHECK (LENGTH(`username`) >= 6 AND LENGTH(`username`) <= 50),
 	`email` 		CHAR(50) NOT NULL UNIQUE CHECK (LENGTH(`email`) >= 6 AND LENGTH(`email`) <= 50),
 	`password` 		VARCHAR(800) NOT NULL,
@@ -32,37 +32,37 @@ CREATE TABLE IF NOT EXISTS `Reset_Password_Token` (
 	`expiryDate` 	DATETIME NOT NULL
 );
 
-create table `group`(
-	id int unsigned auto_increment primary key,
+create table `Group`(
+	groupId TINYINT unsigned auto_increment primary key,
     `name` varchar(30) not null,
     manageId int,
-    foreign key(id) references `user`(id)
+    FOREIGN KEY (groupId) REFERENCES `User` (id) ON DELETE CASCADE
     );
     
-create table group_user(
-	id int not null primary key,
-    groupId int,
-    userId int,
-    foreign key(groupId) references `group`(groupId),
-    foreign key(userId) references `user`(userId)
+create table Group_user(
+    groupId TINYINT unsigned,
+    userId TINYINT unsigned,
+	PRIMARY KEY(groupId,userId),
+   FOREIGN KEY (groupId) REFERENCES `Group` (groupId),
+   FOREIGN KEY (userId) REFERENCES `User` (id)
 );
 
 create table `subject`(
-	id int auto_increment not null primary key,
+	subjectId TINYINT unsigned auto_increment primary key,
     `name` varchar(30)
 );
 
 
 create table subject_point(
-	subjectId int,
-    userId int,
+	subjectId TINYINT unsigned,
+    userId TINYINT unsigned,
     `chuyen_can`tinyint not null,
     `kiemtra_1` tinyint not null,
     `kiemtra_2` tinyint not null,
     `hocky` tinyint not null,
     `trungbinh` tinyint not null,
     foreign key(subjectId) references `subject`(subjectId),
-    foreign key(userId) references `user`(userId)
+    foreign key(userId) references `User`(id)
 );
 /*============================== INSERT DATABASE =======================================*/
 /*======================================================================================*/
