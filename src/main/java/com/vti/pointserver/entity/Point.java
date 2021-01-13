@@ -35,8 +35,6 @@ public class Point implements Serializable{
 		@Column(name=" `trungbinh`", nullable = false)
 		private byte  trungbinh;
 
-		
-
 		public void setSubjectId(int subjectId) {
 			this.subjectId = subjectId;
 		}
@@ -45,29 +43,19 @@ public class Point implements Serializable{
 			this.userId = userId;
 		}
 
-		
-
 		public void setChuyen_can(byte chuyen_can) {
 			this.chuyen_can = chuyen_can;
 		}
-
-		
 
 		public void setKiemtra_1(byte kiemtra_1) {
 			this.kiemtra_1 = kiemtra_1;
 		}
 
-		
-
 		public void setHocky(byte hocky) {
 			this.hocky = hocky;
 		}
 
-		
 		public void setTrungbinh(byte trungbinh) {
 			this.trungbinh = trungbinh;
 		}
-
-		
-		
 }
