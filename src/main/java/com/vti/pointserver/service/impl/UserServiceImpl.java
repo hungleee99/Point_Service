@@ -1,4 +1,4 @@
-package com.vti.pointserver.service;
+package com.vti.pointserver.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.vti.pointserver.entity.User;
 import com.vti.pointserver.repository.UserRepository;
+import com.vti.pointserver.service.UserService;
 
 
 
@@ -67,7 +68,36 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public User getByrole(String role){
 		return repository.findByrole(role);	
 	}
+=======
+	public List<User> getByrole(String role){
+		return repository.findByrole(role);	
+	}
+
+	@Override
+	public User getByid(int id) {
+		return repository.findById(id);
+		
+	}
+
+	@Override
+	public void deleteByGrouprole(String role) {
+		 repository.deleteByGrouprole(role);
+	}
+
+//	@Override
+//	public List<User> searchByname(String userName) {
+//		return repository.searchByname(userName);
+//		
+//	}
+
+//	@Override
+//	public List<User> findUserOfgroup(String role, int first, int last) {
+//		return repository.findUserOfgroup(role, first, last);
+//		
+//	}
+>>>>>>> b90dd2349c7cd94492424047d5f6997b1aa34fd0
 }
