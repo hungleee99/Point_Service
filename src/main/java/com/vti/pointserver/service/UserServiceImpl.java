@@ -67,30 +67,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> getByrole(String role){
+	public User getByrole(String role){
 		return repository.findByrole(role);	
 	}
-
-	@Override
-	public User getByid(int id) {
-		return repository.findById(id);
-		
-	}
-
-	@Override
-	public void deleteByGrouprole(String role) {
-		 repository.deleteByGrouprole(role);
-	}
-
-//	@Override
-//	public List<User> searchByname(String userName) {
-//		return repository.searchByname(userName);
-//		
-//	}
-
-//	@Override
-//	public List<User> findUserOfgroup(String role, int first, int last) {
-//		return repository.findUserOfgroup(role, first, last);
-//		
-//	}
 }
