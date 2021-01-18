@@ -13,4 +13,6 @@ public interface SubjectPointRepository extends JpaRepository<SubjectPoint, Inte
 	List<SubjectPoint> findByGroupId(Integer groupId);
 	
 	SubjectPoint findByUserId(Integer userId);
+	
+	SubjectPoint findBySubjectName(String name);
 }

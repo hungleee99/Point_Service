@@ -2,12 +2,11 @@ package com.vti.pointserver.service;
 
 import java.util.List;
 import com.vti.pointserver.entity.GroupUser;
+import com.vti.pointserver.entity.User;
 
 
 public interface GroupUserService {
-	List<GroupUser> getUsersOfGroup(int groupId);
-	
-	void removeUsersFromGroup(List<Integer> userIds, int groupId);
+	List<User> getUsersOfGroup(int groupId);
 	
 	void updateUsersToGroup(List<GroupUser> groupUsers);
 	
