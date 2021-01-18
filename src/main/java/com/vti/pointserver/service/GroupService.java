@@ -17,7 +17,5 @@ public interface GroupService {
 	
 	Group getGroupById(int id);
 	
-	void deleteListGroupById(List<Integer> ids);
-	
 	boolean checkGroupExists(String groupName);
 }

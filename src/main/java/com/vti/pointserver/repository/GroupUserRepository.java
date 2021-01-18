@@ -8,5 +8,5 @@ import com.vti.pointserver.entity.GroupUser;
 import com.vti.pointserver.entity.User;
 
 public interface GroupUserRepository extends JpaRepository<GroupUser, Integer> {
-	List<User> findByGroupId(Integer groupId);
+	List<User> findAllByGroupId(Integer groupId);
 }

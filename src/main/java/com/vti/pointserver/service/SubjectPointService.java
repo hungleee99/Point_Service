@@ -11,7 +11,9 @@ public interface SubjectPointService {
 	
 	SubjectPoint save(SubjectPoint subjectPoint);
 	
-	void add(SubjectPoint subjectPoint);
+	List<SubjectPoint> gioi();
 	
-	List<SubjectPoint> findByPointBetween(Float min, Float max);
+	List<SubjectPoint> kha();
+	
+	List<SubjectPoint> tb();
 }
