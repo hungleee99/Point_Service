@@ -7,7 +7,9 @@ import com.vti.pointserver.entity.SubjectPoint;
 public interface SubjectPointService {
 	List<SubjectPoint> findByGroup(Integer id);
 	
-	SubjectPoint findBySubject(String name);
+	List<SubjectPoint> findBySubject(String name);
+	
+	List<SubjectPoint> findByUser(Integer id);
 	
 	SubjectPoint save(SubjectPoint subjectPoint);
 	

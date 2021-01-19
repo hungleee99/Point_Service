@@ -20,7 +20,7 @@ public class SubjectPointServiceImpl implements SubjectPointService {
 	}
 
 	@Override
-	public SubjectPoint findBySubject(String name) {
+	public List<SubjectPoint> findBySubject(String name) {
 		return spRepository.findBySubjectName(name);
 	}
 
@@ -43,6 +43,12 @@ public class SubjectPointServiceImpl implements SubjectPointService {
 	public List<SubjectPoint> tb() {
 		return spRepository.findByTrungBinhBetween(0 , 5);
 	}
+
+	@Override
+	public List<SubjectPoint> findByUser(Integer id) {
+		return spRepository.findByUserId(id);
+	}
+
 
 
 }
