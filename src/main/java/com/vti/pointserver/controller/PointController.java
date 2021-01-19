@@ -22,7 +22,6 @@ public class PointController {
 	@Autowired
 	private PointService service;
 	
-	
 //	danh sach cac diem cua 1 user
 	@GetMapping(value = "/user/{id}")
 	

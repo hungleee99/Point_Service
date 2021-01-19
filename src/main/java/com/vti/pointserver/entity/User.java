@@ -1,15 +1,18 @@
 package com.vti.pointserver.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.Formula;
+
 
 /**
  * The persistent class for the user database table.
@@ -78,6 +81,9 @@ public class User implements Serializable {
 	@Column(name = "role", nullable = false)
 	private String role;
 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+	private Collection<GroupUser> groupUserCollection;
+
 	/**
 	 * Constructor for class User.
 	 * 
@@ -145,6 +151,14 @@ public class User implements Serializable {
 	 */
 	public String getRole() {
 		return role;
+	}
+
+	public Collection<GroupUser> getGroupUserCollection() {
+		return groupUserCollection;
+	}
+
+	public void setGroupUserCollection(Collection<GroupUser> groupUserCollection) {
+		this.groupUserCollection = groupUserCollection;
 	}
 
 }
