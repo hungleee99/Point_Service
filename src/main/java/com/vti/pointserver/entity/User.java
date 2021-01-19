@@ -81,19 +81,7 @@ public class User implements Serializable {
 	@Column(name = "role", nullable = false)
 	private String role;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
-	private Collection<GroupUser> groupUserCollection;
 
-	/**
-	 * Constructor for class User.
-	 * 
-	 * @Description: .
-	 * @author: NNDuy
-	 * @create_date: Apr 2, 2020
-	 * @version: 1.0
-	 * @modifer: NNDuy
-	 * @modifer_date: Apr 2, 2020
-	 */
 	public User() {
 	}
 
@@ -153,12 +141,6 @@ public class User implements Serializable {
 		return role;
 	}
 
-	public Collection<GroupUser> getGroupUserCollection() {
-		return groupUserCollection;
-	}
 
-	public void setGroupUserCollection(Collection<GroupUser> groupUserCollection) {
-		this.groupUserCollection = groupUserCollection;
-	}
 
 }

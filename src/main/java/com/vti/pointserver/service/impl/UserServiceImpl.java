@@ -13,18 +13,6 @@ import com.vti.pointserver.entity.User;
 import com.vti.pointserver.repository.UserRepository;
 import com.vti.pointserver.service.UserService;
 
-
-
-/**
- * This class is implement User Service.
- * 
- * @Description: .
- * @author: NNDuy
- * @create_date: Dec 7, 2019
- * @version: 1.0
- * @modifer: NNDuy
- * @modifer_date: Dec 7, 2019
- */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -68,7 +56,28 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getByrole(String role){
+	public List<User> getByrole(String role){
 		return repository.findByrole(role);	
+	}
+
+	@Override
+	public List<User> getByName(String name) {
+		return repository.findByName(name);
+	}
+
+	@Override
+	public void deletebyrole(String role) {
+		repository.deleteByRole(role);;
+		
+	}
+
+	@Override
+	public User getById(int id) {	 
+		return repository.findById(id);
+	}
+
+	@Override
+	public List<User> findUserInGroup(String role, String name) {
+		return repository.findUserInGroup(role, name);
 	}
 }
