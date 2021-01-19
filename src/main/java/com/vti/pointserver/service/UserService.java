@@ -14,12 +14,12 @@ import com.vti.pointserver.entity.User;
 
 public interface UserService extends UserDetailsService {
 	List<User> getAllUsers();
-<<<<<<< HEAD
-	public User getByrole(String role);
-=======
+
+//	public User getByrole(String role);
+
 	List<User> getByrole(String role);
 	public User getByid(int id);
->>>>>>> b90dd2349c7cd94492424047d5f6997b1aa34fd0
+
 	public void createUser(User user);
 	public void updateUser(User user);
 	public void deleteUser(int id);

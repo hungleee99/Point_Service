@@ -35,6 +35,7 @@ public class UserController {
 	public ResponseEntity<?> getAllUsers() {
 		return new ResponseEntity<>(service.getAllUsers(), HttpStatus.OK);
 	}
+	
 	@GetMapping(value = "/{role}")
 	public ResponseEntity<?> getByUser(@PathVariable(name= "role") String role) {
 		return new ResponseEntity<User>(service.getByrole(role), HttpStatus.OK);
