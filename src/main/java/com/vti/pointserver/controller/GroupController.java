@@ -48,7 +48,7 @@ public class GroupController {
 	@PostMapping()
 	public ResponseEntity<?> createGroup(@RequestBody Group group) {
 		// check group exists
-		if (!groupService.checkGroupExists(group.getUserName())) {
+		if (!groupService.checkGroupExists(group.getGroupName())) {
 			return new ResponseEntity<Group>(groupService.createGroup(group), HttpStatus.OK);
 		}
 		return new ResponseEntity<Group>(groupService.updateGroup(group), HttpStatus.OK);
@@ -58,7 +58,7 @@ public class GroupController {
 	@PutMapping()
 	public ResponseEntity<?> updateGroup(@RequestBody Group group) {
 		// check group exists
-		if (!groupService.checkGroupExists(group.getUserName())) {
+		if (!groupService.checkGroupExists(group.getGroupName())) {
 			return new ResponseEntity<Group>(groupService.createGroup(group), HttpStatus.OK);
 		}
 		return new ResponseEntity<Group>(groupService.updateGroup(group), HttpStatus.OK);

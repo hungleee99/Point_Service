@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS `User` (
 	`password` 		VARCHAR(800) NOT NULL,
 	`firstName` 	NVARCHAR(50) NOT NULL,
 	`lastName` 		NVARCHAR(50) NOT NULL,
+    `address` 		varchar(50) not null,
 	`role` 			ENUM('Admin','Student','Manager') NOT NULL DEFAULT 'Student'
 );
 -- Create table Registration_User_Token
@@ -49,7 +50,8 @@ create table Group_user(
 
 create table `subject`(
 	subjectId TINYINT unsigned auto_increment primary key,
-    `name` varchar(30)
+    `name` varchar(30),
+    `exam_day` date not null
 );
 
 

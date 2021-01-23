@@ -26,12 +26,12 @@ public class Group implements Serializable {
 	@Column(name = "`id`", unique = true, nullable = false)
 	private int id;
 	
-	@Column(name = "`username`", nullable = false, length = 30, unique = true)
-	private String userName;
+	@Column(name = "`name`", nullable = false, length = 30, unique = true)
+	private String groupName;
 	
 	@JoinColumn(name = "manageId", referencedColumnName = "id", nullable = false)
 	@ManyToOne(optional = false)
-	private User manageId;
+	private User managerId;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
 	private Collection<GroupUser> groupUserCollection;
@@ -46,20 +46,20 @@ public class Group implements Serializable {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getGroupName() {
+		return groupName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
 	}
 
 	public User getManageId() {
-		return manageId;
+		return managerId;
 	}
 
 	public void setManageId(User manageId) {
-		this.manageId = manageId;
+		this.managerId = manageId;
 	}
 
 	public Collection<GroupUser> getGroupUserCollection() {
@@ -69,7 +69,5 @@ public class Group implements Serializable {
 	public void setGroupUserCollection(Collection<GroupUser> groupUserCollection) {
 		this.groupUserCollection = groupUserCollection;
 	}
-	
-	
 	
 }

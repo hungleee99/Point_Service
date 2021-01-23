@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vti.pointserver.entity.Subject;
 import com.vti.pointserver.entity.SubjectPoint;
 import com.vti.pointserver.entity.User;
-import com.vti.pointserver.service.PointService;
+import com.vti.pointserver.service.GroupUserService;
 import com.vti.pointserver.service.SubjectPointService;
 import com.vti.pointserver.service.SubjectService;
 import com.vti.pointserver.service.UserService;
@@ -26,6 +26,9 @@ import com.vti.pointserver.service.UserService;
 @RequestMapping(value = "/api/v1/points")
 
 public class PointController {
+	@Autowired
+	private GroupUserService groupUserService;
+	
 	@Autowired
 	private SubjectService subjectService;
 
@@ -38,15 +41,18 @@ public class PointController {
 		return new ResponseEntity<List<SubjectPoint>>(subjectPointService.findByUser(id), HttpStatus.OK);
 	}
 	
-	//Danh sach diem cua 1 group
-	@GetMapping(value = "/group/{id}")
-	public ResponseEntity<?> getByGroupId(@PathVariable(name= "id") int id) {	
-		return new ResponseEntity<List<SubjectPoint>>(subjectPointService.findByGroup(id), HttpStatus.OK);
-	}
+//	//Danh sach diem cua 1 group
+//	@GetMapping(value = "/group/{id}")
+//	public ResponseEntity<?> getByGroupId(@PathVariable(name= "id") int id) {
+//		List<User> users = groupUserService.getUsersOfGroup(id);
+//		return new ResponseEntity<List<SubjectPoint>>(subjectPointService.findByGroup(users), HttpStatus.OK);
+//	}
 	
 	//Update diem cua 1 sinh vien
-	@PutMapping()
-	  public ResponseEntity<?> updatePoint(@RequestBody SubjectPoint subjectPoint) {
+	@PutMapping(name = "/user/{id}")
+	  public ResponseEntity<?> updatePoint(@PathVariable(name= "id") int id, @RequestBody SubjectPoint subjectPoint) {
+		subjectPoint.setId(id);
+		subjectPointService.save(subjectPoint);
 	    return new ResponseEntity<SubjectPoint>(subjectPointService.save(subjectPoint), HttpStatus.OK);
 	}
 	
@@ -66,8 +72,8 @@ public class PointController {
 		return new ResponseEntity<List<SubjectPoint>>(subjectPointService.tb(), HttpStatus.OK);
 	}
 	//Danh sach diem theo ten mon
-	@GetMapping(value = "/{name}")
-	public ResponseEntity<?> getBySubjectName(@PathVariable(name= "name") String name) {	
-		return new ResponseEntity<List<SubjectPoint>>(subjectPointService.findBySubject(name), HttpStatus.OK);
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<?> getBySubjectId(@PathVariable(name= "id") Integer id) {	
+		return new ResponseEntity<List<SubjectPoint>>(subjectPointService.findBySubject(id), HttpStatus.OK);
 	}
 }
