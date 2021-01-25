@@ -1,4 +1,4 @@
-package com.vti.pointserver.service;
+package com.vti.pointserver.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,19 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.vti.pointserver.entity.User;
 import com.vti.pointserver.repository.UserRepository;
+import com.vti.pointserver.service.UserService;
 
-
-
-/**
- * This class is implement User Service.
- * 
- * @Description: .
- * @author: NNDuy
- * @create_date: Dec 7, 2019
- * @version: 1.0
- * @modifer: NNDuy
- * @modifer_date: Dec 7, 2019
- */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -72,6 +61,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+<<<<<<< HEAD:src/main/java/com/vti/pointserver/service/UserServiceImpl.java
 	public User getByid(int id) {
 		return repository.findById(id);
 		
@@ -93,4 +83,25 @@ public class UserServiceImpl implements UserService {
 //		return repository.findUserOfgroup(role, first, last);
 //		
 //	}
+=======
+	public List<User> getByName(String name) {
+		return repository.findByName(name);
+	}
+
+	@Override
+	public void deletebyrole(String role) {
+		repository.deleteByRole(role);;
+		
+	}
+
+	@Override
+	public User getById(int id) {	 
+		return repository.findById(id);
+	}
+
+	@Override
+	public List<User> findUserInGroup(String role, String name) {
+		return repository.findUserInGroup(role, name);
+	}
+>>>>>>> ed70bc1fe241e593893fe4d071ac909701ff6297:src/main/java/com/vti/pointserver/service/impl/UserServiceImpl.java
 }
