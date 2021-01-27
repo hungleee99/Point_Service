@@ -1,5 +1,13 @@
 package com.vti.pointserver.controller;
 
+<<<<<<< HEAD
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@CrossOrigin
+public class GroupController {
+=======
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,5 +83,6 @@ public class GroupController {
 	public ResponseEntity<?> getUsersOfGroup(@PathVariable(name = "id") Integer id) {
 		return new ResponseEntity<List<User>>(groupUserService.getUsersOfGroup(id), HttpStatus.OK);
 	}
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 	
 }

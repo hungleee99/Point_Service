@@ -6,10 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vti.pointserver.entity.SubjectPoint;
-<<<<<<< HEAD
-=======
-import com.vti.pointserver.entity.User;
->>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 import com.vti.pointserver.repository.SubjectPointRepository;
 import com.vti.pointserver.service.SubjectPointService;
 
@@ -18,7 +14,6 @@ public class SubjectPointServiceImpl implements SubjectPointService {
 	@Autowired
 	private SubjectPointRepository spRepository;
 
-<<<<<<< HEAD
 	@Override
 	public List<SubjectPoint> findByGroup(Integer id) {
 		return spRepository.findByGroupId(id);
@@ -27,16 +22,6 @@ public class SubjectPointServiceImpl implements SubjectPointService {
 	@Override
 	public SubjectPoint findBySubject(String name) {
 		return spRepository.findBySubjectName(name);
-=======
-//	@Override
-//	public List<SubjectPoint> findByGroup(Integer id) {
-//		return spRepository.findByGroupId(id);
-//	}
-
-	@Override
-	public List<SubjectPoint> findBySubject(Integer id) {
-		return spRepository.findBySubjectId(id);
->>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 	}
 
 	@Override
@@ -59,12 +44,5 @@ public class SubjectPointServiceImpl implements SubjectPointService {
 		return spRepository.findByTrungBinhBetween(0 , 5);
 	}
 
-<<<<<<< HEAD
-=======
-	@Override
-	public List<SubjectPoint> findByUser(Integer id) {
-		return spRepository.findByUserId(id);
-	}
->>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 
 }

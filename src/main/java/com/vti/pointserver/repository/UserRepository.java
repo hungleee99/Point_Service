@@ -13,6 +13,31 @@ import com.vti.pointserver.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+	public User findByUserName(String name);
+	public List<User> findByrole(String role);
+	public User findById(int id);
+	
+	@Transactional
+	@Modifying
+	@Query(value = "DELETE FROM `User` u WHERE u.role = ?1",nativeQuery = true)
+	public void deleteByGrouprole(@Param("role") String role);
+	
+//	@Transactional
+//	@Modifying
+//	@Query(value = "SELECT u.* FROM `User` u WHERE u.userName LIKE CONCAT('%',:userName,'%')",nativeQuery = true)
+//	public List<User> searchByname(@Param("userName") String userName);
+	
+//	@Transactional
+//	@Modifying
+//	@Query(value = "SELECT * FROM `User` u WHERE u.role =?1 and u.id between :first and :last",nativeQuery = true)
+//	public List<User> findUserOfgroup(@Param("role") String role,@Param("first") int first,@Param("last") int last);
+	
+=======
+=======
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 	public User findByUserName(String userName);
 	public User findById(int id);
 	
@@ -30,4 +55,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	@Transactional
 	@Query(value = "DELETE FROM User u WHERE u.role = ?1", nativeQuery = true)
 	public void deleteByRole(String role);
+<<<<<<< HEAD
+>>>>>>> ed70bc1fe241e593893fe4d071ac909701ff6297
+=======
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 }

@@ -1,5 +1,14 @@
 package com.vti.pointserver.controller;
 
+<<<<<<< HEAD
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@CrossOrigin
+public class SubjectController {
+	
+=======
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +58,5 @@ public class SubjectController {
 	// validate param success then return list category question
 	return new ResponseEntity<Subject>(subjectService.getSubjectById(id), HttpStatus.OK);
 	}
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 }
