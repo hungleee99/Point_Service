@@ -25,15 +25,20 @@ import com.vti.pointserver.service.UserService;
 @CrossOrigin("*")
 @RestController
 <<<<<<< HEAD
+<<<<<<< HEAD
 @RequestMapping(value = "/api/v1")
 =======
 @RequestMapping(value = "/api/v1/admin")
 >>>>>>> ed70bc1fe241e593893fe4d071ac909701ff6297
+=======
+@RequestMapping(value = "/api/v1/admin")
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 public class UserController {
 
 	@Autowired
 	private UserService service;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 //	danh sach cac tai khoan
 	@GetMapping(value = "/admin/list")
@@ -41,10 +46,15 @@ public class UserController {
 //	get list account
 	@GetMapping(value = "/list")
 >>>>>>> ed70bc1fe241e593893fe4d071ac909701ff6297
+=======
+//	get list account
+	@GetMapping(value = "/list")
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 	public ResponseEntity<?> getAllUsers() {
 		return new ResponseEntity<>(service.getAllUsers(), HttpStatus.OK);
 	}
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 //	detail 1 tai khoan
 	@GetMapping(value = "/admin1/{id}")
@@ -59,14 +69,21 @@ public class UserController {
 //	find by group
 	@GetMapping(value = "/group/{role}")
 >>>>>>> ed70bc1fe241e593893fe4d071ac909701ff6297
+=======
+//	find by group
+	@GetMapping(value = "/group/{role}")
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 	public ResponseEntity<?> getByUser(@PathVariable(name= "role") String role) {
 		return new ResponseEntity<>(service.getByrole(role), HttpStatus.OK);
 	}
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// add tai khoan
 	@PostMapping(value = "/admin")
 =======
+=======
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 //	find by id
 	@GetMapping(value = "/detail/{id}")
 	public ResponseEntity<?> getById(@PathVariable(name= "id") int id) {
@@ -93,9 +110,12 @@ public class UserController {
 	}
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// update tai khoan theo id
 	@PutMapping(value = "/admin/{id}")
 =======
+=======
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 //	update account
 	@PutMapping(value = "/{id}")
 >>>>>>> ed70bc1fe241e593893fe4d071ac909701ff6297
@@ -106,9 +126,12 @@ public class UserController {
 	}
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// xoa tai khoan 
 	@DeleteMapping(value = "/admin/{id}")
 =======
+=======
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 //	delete by id
 	@DeleteMapping(value = "/{id}")
 >>>>>>> ed70bc1fe241e593893fe4d071ac909701ff6297
@@ -117,6 +140,7 @@ public class UserController {
 		return new ResponseEntity<String>("Delete Success!", HttpStatus.OK);
 	}
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 	// xoa nhom tk
 	@DeleteMapping(value = "/adminGroup/{role}")
@@ -141,11 +165,16 @@ public class UserController {
 //		
 //	}
 =======
+=======
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 //	delete by group
 	@DeleteMapping(value = "/deletegroup/{role}")
 	public ResponseEntity<?> deleteByRole(@PathVariable(name = "role") String role) {
 		service.deletebyrole(role);;
 		return new ResponseEntity<String>("Delete Success!", HttpStatus.OK);
 	}
+<<<<<<< HEAD
 >>>>>>> ed70bc1fe241e593893fe4d071ac909701ff6297
+=======
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 }

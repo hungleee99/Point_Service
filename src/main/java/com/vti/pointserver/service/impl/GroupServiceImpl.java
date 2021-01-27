@@ -34,7 +34,11 @@ public class GroupServiceImpl implements GroupService {
 	public Group updateGroup(Group group) {
 	    // get Group by id
 	    Group groupCurrent = getGroupById(group.getId());
+<<<<<<< HEAD
 	    group.setUserName(groupCurrent.getUserName());
+=======
+	    group.setGroupName(groupCurrent.getGroupName());
+>>>>>>> 631892d166cd0f6160c2a1b300e1b2a69955ed77
 	    group.setManageId(groupCurrent.getManageId());
 	    return groupRepository.save(groupCurrent);	
 	    }
